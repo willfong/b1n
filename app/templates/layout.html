@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Boilerplate</title>
+    <title>b1n</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sticky-footer/">
 
@@ -19,16 +19,7 @@
   <body class="d-flex flex-column h-100">
     <main role="main" class="flex-shrink-0">
         <div class="container">
-            <h1 class="mt-5">My Message Board</h1>
-            {% if not loginpage %}
-            <p class="text-right">
-              {% if session['user_id'] %}
-              Welcome, {{session['user_name']}}! (<a href="{{url_for('auth.logout')}}">Logout</a>)
-              {% else %}
-              <a href="{{url_for('auth.login')}}">Login</a>
-              {% endif %}
-            </p>
-            {% endif %}
+            <h1 class="mt-5">b1n <small>one minute bins</small></h1>
             {% with messages = get_flashed_messages(with_categories=true) %}
               {% if messages %}
                 {% for category, message in messages %}
@@ -41,7 +32,7 @@
     </main>
     <footer class="footer mt-auto py-3">
         <div class="container">
-            <span class="text-muted">Source: https://github.com/willfong/heroku-python-postgresql</span>
+            <span class="text-muted">Source: https://github.com/willfong/b1n</span>
         </div>
     </footer>
   </body>

@@ -1,23 +1,9 @@
-DROP TABLE IF EXISTS users CASCADE;
-CREATE TABLE users (
+DROP TABLE IF EXISTS bins;
+CREATE TABLE bins (
   id SERIAL PRIMARY KEY,
-  github_id TEXT,
-  google_id TEXT,
-  facebook_id TEXT,
-  name TEXT NOT NULL DEFAULT '',
-  avatar TEXT NOT NULL DEFAULT '',
-  last_login TIMESTAMPTZ
+  access_code INT NOT NULL DEFAULT 0,
+  content TEXT NOT NULL DEFAULT '',
+  created TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
-CREATE UNIQUE INDEX ON users (github_id);
-CREATE UNIQUE INDEX ON users (google_id);
-CREATE UNIQUE INDEX ON users (facebook_id);
-
-
-DROP TABLE IF EXISTS posts CASCADE;
-CREATE TABLE posts (
-  id SERIAL PRIMARY KEY,
-  author_id INTEGER NOT NULL,
-  created TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  message TEXT NOT NULL,
-  FOREIGN KEY (author_id) REFERENCES users (id)
-);
+CREATE UNIQUE INDEX ON bins (access_code);
+CREATE INDEX ON bins (created);
