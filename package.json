@@ -1,0 +1,23 @@
+{
+  "name": "b1n",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:willfong/b1n.git",
+  "author": "Will Fong <willfong@hey.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "tailwind": "NODE_ENV=production npx tailwindcss -o dist/tailwind.css --minify"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "redis": "^3.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12",
+    "tailwindcss": "^2.2.4",
+    "@tailwindcss/forms": "^0.3.3"
+  }
+}
