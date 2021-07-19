@@ -8,7 +8,6 @@
 <body class="bg-gray-300">
     <div class="container mx-auto p-4 max-w-2xl">
         <h1 class="font-mono"><span class="text-4xl">b1n.xyz</span> <span class="text-gray-600 italic">One Minute Bins!</span></h1>
-        <form action="/submit" method="POST">
             <div>
                 <div class="mt-1 flex rounded-md shadow-sm">
                   <div class="relative flex items-stretch flex-grow focus-within:z-10">
@@ -19,12 +18,28 @@
                     </div>
                     <input type="tel" name="code" id="code" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full rounded-none rounded-l-md pl-10 sm:text-sm border-gray-300" placeholder="Have an existing code?" autofocus>
                   </div>
-                  <button type="submit" class="-ml-px relative inline-flex items-center space-x-2 px-4 py-2 border border-gray-300 text-sm font-medium rounded-r-md text-gray-700 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">
+                  <button id="btnShowBin" class="-ml-px relative inline-flex items-center space-x-2 px-4 py-2 border border-gray-300 text-sm font-medium rounded-r-md text-gray-700 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">
                     <span>Show</span>
                   </button>
                 </div>
               </div>
-        </form>
+        <div class="mt-4">
+            <div class="sm:col-span-6">
+              <label for="about" class="block text-sm font-medium text-gray-700">
+                New Bin
+              </label>
+              <div class="mt-1">
+                <textarea id="binContents" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
+              </div>
+              <p class="mt-2 text-sm text-gray-500">Any content here will only be available for a minute!</p>
+            </div>
+            <button id="btnNewBin" class="-ml-px relative inline-flex items-center space-x-2 px-4 py-2 border border-gray-300 text-sm font-medium rounded-r-md text-gray-700 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">
+              <span>New</span>
+            </button>
+            <p id="newBinCode"></p>
+        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/bin.js"></script>
 </body>
 </html>

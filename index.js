@@ -8,9 +8,12 @@ const PORT = process.env.PORT || 3000;
 app.use(morgan("combined"));
 app.use(express.static("public"));
 app.use(express.static("dist"));
+app.use(express.json())
 
-app.post("/submit", (req, res) => {
-    
+app.post("/new", (req, res) => {
+    const id = Math.floor((Math.random() * 10000) + 1000);
+    const bin = req.body.bin;
+    res.json({id});
 })
 
 app.use(function(req, res) {
