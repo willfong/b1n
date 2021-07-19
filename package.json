@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "tailwind": "NODE_ENV=production npx tailwindcss -o dist/tailwind.css --minify"
+    "tailwind": "NODE_ENV=production tailwindcss -o dist/tailwind.css --minify"
   },
   "dependencies": {
     "express": "^4.17.1",
