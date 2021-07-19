@@ -5,13 +5,14 @@ const { promisify } = require("util");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const REDIS_HOST = process.env.REDIS || 'localhost';
 
 app.use(morgan("combined"));
 app.use(express.static("public"));
 app.use(express.static("dist"));
 app.use(express.json())
 
-const redisClient = redis.createClient();
+const redisClient = redis.createClient({host: REDIS_HOST});
 redisClient.on("error", function(error) {
     console.error(error);
 });

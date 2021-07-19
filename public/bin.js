@@ -4,12 +4,20 @@ const binContents = document.getElementById("binContents");
 const newBinCode = document.getElementById("newBinCode");
 
 btnNewBin.onclick = async (event) => {
-    const response = await axios.post("/new", {bin: binContents.value});
-    newBinCode.innerHTML = `Your code is: ${response.data.id}`;
+    try {
+        const response = await axios.post("/new", {bin: binContents.value});
+        newBinCode.innerHTML = `Your code is: ${response.data.id}`;
+    } catch(err) {
+        console.log(err);
+    }
 }
 
 btnShowBin.onclick = async (event) => {
     const id = document.getElementById("code");
-    const response = await axios.get("/get", {params: {id: id.value}});
-    document.getElementById("codeResults").innerHTML = response.data;
+    try {
+        const response = await axios.get("/get", {params: {id: id.value}});
+        document.getElementById("codeResults").innerHTML = response.data;
+    } catch(err) {
+        console.log(err);
+    }
 }
