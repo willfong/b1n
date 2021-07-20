@@ -18,6 +18,7 @@ redisClient.on("error", function(error) {
 });
 const redisGet = promisify(redisClient.get).bind(redisClient);
 const redisSet = promisify(redisClient.set).bind(redisClient);
+const redisDbSize = promisify(redisClient.dbsize).bind(redisClient);
 
 app.post("/new", async (req, res) => {
     const id = Math.floor((Math.random() * 9000) + 1000);
@@ -36,6 +37,11 @@ app.get("/get", async (req, res) => {
         return res.status(404).send("404: Expired or invalid ID")
     }
     res.send(response);
+});
+
+app.get("/size", async (req, res) => {
+    const response = await redisDbSize();
+    res.json({size: response});
 });
 
 app.use(function(req, res) {
