@@ -16,8 +16,8 @@
     "redis": "^3.1.2"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.3.3",
     "nodemon": "^2.0.12",
-    "tailwindcss": "^2.2.4",
-    "@tailwindcss/forms": "^0.3.3"
+    "tailwindcss": "^2.2.4"
   }
 }

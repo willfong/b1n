@@ -5,7 +5,7 @@ const { promisify } = require("util");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const REDIS_HOST = process.env.REDIS || "localhost";
+const REDIS_HOST = process.env.REDIS || "127.0.0.1";
 
 app.use(morgan("combined"));
 app.use(express.static("public"));
@@ -20,10 +20,14 @@ const redisGet = promisify(redisClient.get).bind(redisClient);
 const redisSet = promisify(redisClient.set).bind(redisClient);
 const redisDbSize = promisify(redisClient.dbsize).bind(redisClient);
 
+const redisPrefixKey = (id) => {
+	return `B1NXYZ-${id}`;
+};
+
 app.post("/new", async (req, res) => {
 	const id = Math.floor(Math.random() * 9000 + 1000);
 	const bin = req.body.bin;
-	await redisSet(id, bin, "EX", 60);
+	await redisSet(redisPrefixKey(id), bin, "EX", 60);
 	res.json({ id });
 });
 
@@ -32,7 +36,7 @@ app.get("/get", async (req, res) => {
 	if (!id || !parseInt(id, 10)) {
 		return res.status(400).send("400: Invalid ID");
 	}
-	const response = await redisGet(id);
+	const response = await redisGet(redisPrefixKey(id));
 	if (!response) {
 		return res.status(404).send("404: Expired or invalid ID");
 	}
