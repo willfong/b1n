@@ -24,6 +24,10 @@ const redisPrefixKey = (id) => {
 	return `B1NXYZ-${id}`;
 };
 
+app.get("/alb-health-check", (req, res) => {
+	res.send("ok");
+});
+
 app.post("/new", async (req, res) => {
 	const id = Math.floor(Math.random() * 9000 + 1000);
 	const bin = req.body.bin;
