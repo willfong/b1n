@@ -12,6 +12,15 @@ btnNewBin.onclick = async (event) => {
 	}
 };
 
+btnClearBin.onclick = async (event) => {
+	try {
+		binContents.value = "";
+	} catch (err) {
+		console.log(err);
+	}
+};
+
+
 btnShowBin.onclick = async (event) => {
 	const id = document.getElementById("code");
 	try {
