@@ -38,11 +38,11 @@ app.post("/new", async (req, res) => {
 app.get("/get", async (req, res) => {
 	const id = req.query.id;
 	if (!id || !parseInt(id, 10)) {
-		return res.status(400).send("400: Invalid ID");
+		return res.status(400).send("Invalid ID");
 	}
 	const response = await redisGet(redisPrefixKey(id));
 	if (!response) {
-		return res.status(404).send("404: Expired or invalid ID");
+		return res.status(404).send("Expired or invalid ID");
 	}
 	res.send(response);
 });
