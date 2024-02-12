@@ -46,13 +46,24 @@
 					</button>
 				</div>
 			</div>
-			<div><p id="codeResults"></p></div>
+			<div id="binResults">
+				<p>
+					<pre id="binContents"></pre>
+				</p>
+				<button
+					id="btnCopyBin"
+					class="-ml-px relative inline-flex items-center space-x-2 px-4 py-2 border border-gray-300 text-sm font-medium rounded-r-md text-gray-700 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+				>
+					<span>Copy</span>
+				</button>
+			</div>
+
 			<div class="mt-4">
 				<div class="sm:col-span-6">
 					<label for="about" class="block text-sm font-medium text-gray-700"> New Bin </label>
 					<div class="mt-1">
 						<textarea
-							id="binContents"
+							id="binNewContent"
 							rows="3"
 							class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md"
 						></textarea>
