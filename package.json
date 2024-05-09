@@ -9,8 +9,8 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "tailwind": "NODE_ENV=production tailwindcss -o dist/tailwind.css --minify",
-    "aws:deploy": "AWS_PROFILE=davao AWS_REGION=ap-southeast-1 aws ecs update-service --cluster default --service b1n --force-new-deployment",
-    "aws:logs": "AWS_PROFILE=davao AWS_REGION=ap-southeast-1 aws logs tail /ecs/services/b1n --follow"
+    "aws:deploy": "AWS_REGION=ap-southeast-1 aws ecs update-service --cluster default --service b1n --force-new-deployment",
+    "aws:logs": "AWS_REGION=ap-southeast-1 aws logs tail /aws/ecs/b1n/b1n --follow"
   },
   "dependencies": {
     "express": "^4.17.1",
